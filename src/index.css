@@ -3,7 +3,7 @@
 :root {
   --primary-cl: #288f9f;
   --secondary-cl: #585858;
-  --white-bg: rgba(255, 255, 255, 0.3);
+  --white-bg: rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -27,6 +27,7 @@ h2 {
 }
 h3 {
   font-size: 1rem;
+  text-transform: capitalize;
 }
 
 .container {

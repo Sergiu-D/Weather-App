@@ -10,12 +10,12 @@ export default function CurrentWeather({ current }) {
       <h1>{temp}°</h1>
       <div className="current-weather_icon">
         <Icon {...weather[0]} />
-        <p>{weather[0].description}</p>
+        <h3>{weather[0].description}</h3>
       </div>
       <div className="current-weather_info">
         <h3>Feels like: {feels_like}°</h3>
         <h3>Humidity: {humidity}%</h3>
-        <h3>Wind speed: {wind_speed}</h3>
+        <h3>Wind speed: {wind_speed} m/s</h3>
       </div>
     </div>
   );

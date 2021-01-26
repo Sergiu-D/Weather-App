@@ -10,11 +10,11 @@ function Day({ dt, weather, temp }) {
   return (
     <div className="weather-card">
       <h3>
-        {weekday}, {day}
+        {weekday} {day}
       </h3>
       <Icon {...weather[0]} />
       <h3>
-        {temp.day} <span>{temp.night}</span>
+        {temp.day}° <span>{temp.night}°</span>
       </h3>
       <h3>{weather[0].description}</h3>
     </div>
