@@ -1,4 +1,5 @@
 import React from "react";
+import Icon from "../Util/Icons";
 
 export default function CurrentWeather({ current }) {
   const { temp, feels_like, humidity, wind_speed, weather } = current;
@@ -8,7 +9,7 @@ export default function CurrentWeather({ current }) {
     <div className="current-weather-wp">
       <h1>{temp}°</h1>
       <div className="current-weather_icon">
-        <img src={weather[0].icon} alt="icon" />
+        <Icon {...weather[0]} />
         <p>{weather[0].description}</p>
       </div>
       <div className="current-weather_info">

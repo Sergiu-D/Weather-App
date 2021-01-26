@@ -58,6 +58,7 @@ function App() {
   const { data, error } = useSWR(replaceURL, fetcher);
   if (error) return <h1>Error...</h1>;
   if (!data) return <Loading />;
+  // TODO Al 2 lea API redenumeste.
 
   // ======= Waiting For Response ========
 

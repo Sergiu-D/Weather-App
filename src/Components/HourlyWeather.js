@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO Filtrarea obiectului cu Filter sau Reduce.
+
 export default function HourlyWeather({ hourly }) {
   return (
     <div>
