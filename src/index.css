@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+:root {
+  --primary-cl: #288f9f;
+  --secondary-cl: #585858;
+  --white-bg: rgba(255, 255, 255, 0.3);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1rem;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("./img/breno-machado-in9-n0JwgZ0-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+section {
+  width: 60vw;
+  background: var(--white-bg);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 15px 15px 10px #0000;
+}
+
+.cw-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* Location */
+
+.location-wp {
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+/* Current Weather */
+
+.current-weather-wp {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.current-weather_icon {
+  padding: 1.5rem;
+}
+
+.current-weather_info {
+  line-height: 15px;
+}
+
+/* Clock */
+
+.clock-wp {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border-right: 2px solid var(--white-bg);
+}
+
+/* Weather Daily */
+
+.weather-daily-wp {
+  display: flex;
+  justify-content: space-evenly;
+}
