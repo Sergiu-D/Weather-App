@@ -43,7 +43,7 @@ h3 {
 }
 
 section {
-  width: 60vw;
+  min-width: 65vw;
   background: var(--white-bg);
   padding: 3rem;
   border-radius: 1.5rem;
@@ -100,9 +100,34 @@ section {
   text-align: center;
 }
 
+.weather-card {
+  flex: 1;
+  background: linear-gradient(
+    -45deg,
+    rgba(40, 143, 159, 0.3),
+    rgba(88, 88, 88, 0.3) 80%
+  );
+}
+
+.weather-card.active {
+  flex: 1;
+  background: linear-gradient(-45deg, rgba(40, 143, 159), rgba(88, 88, 88) 80%);
+}
+
+.weather-card:not(:last-child) {
+  margin-right: 1rem;
+}
+.weather-card .temp {
+  font-size: 2rem;
+}
+.weather-card span {
+  font-size: 1.5rem;
+  color: #b4b4b4;
+}
+
 .icons {
   display: block;
   font-size: 2.5rem;
-  color: blueviolet;
+  color: orangered;
   margin: 0 auto;
 }

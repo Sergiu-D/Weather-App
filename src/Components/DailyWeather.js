@@ -1,18 +1,25 @@
 import React from "react";
-import Date from "../Util/Date";
+import DateUTC from "../Util/Date";
 import Icon from "../Util/Icons";
 
 function Day({ dt, weather, temp }) {
-  const { weekday, day } = Date(dt);
+  // Get current date
+  const currentDate = new Date();
+  const currentDay = currentDate.getDate();
+
+  // get API date
+  const { weekday, day } = DateUTC(dt);
 
   return (
-    <div className="weather-card">
+    <div
+      className={day === currentDay ? "weather-card active" : "weather-card"}
+    >
       <h3>
         {weekday} {day}
       </h3>
       <Icon {...weather[0]} />
-      <h3>
-        {temp.day}° <span>{temp.night}°</span>
+      <h3 className="temp">
+        {Math.trunc(temp.day)}° <span>{Math.trunc(temp.night)}°</span>
       </h3>
       <h3>{weather[0].description}</h3>
     </div>

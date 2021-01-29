@@ -10,6 +10,7 @@
     "chart.js": "^2.9.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-geocode": "^0.2.2",
     "react-scripts": "4.0.1",
     "swr": "^0.4.0",
     "weather-icons": "git+https://github.com/erikflowers/weather-icons.git",

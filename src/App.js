@@ -76,7 +76,7 @@ function App() {
   return (
     <div className="container">
       <section>
-        <Location />
+        <Location {...position} />
         <div className="cw-wrapper">
           <Clock />
           <CurrentWeather current={current} />
