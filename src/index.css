@@ -35,7 +35,7 @@ h3 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-image: url("./img/breno-machado-in9-n0JwgZ0-unsplash.jpg");
   background-size: cover;

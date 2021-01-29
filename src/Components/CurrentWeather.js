@@ -6,7 +6,7 @@ export default function CurrentWeather({ current }) {
 
   return (
     <div className="current-weather-wp">
-      <h1>{temp}°</h1>
+      <h1>{Math.trunc(temp)}°</h1>
       <div className="current-weather_icon">
         <Icon {...weather[0]} />
         <h3>{weather[0].description}</h3>

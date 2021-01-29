@@ -13,6 +13,7 @@ function Day({ dt, weather, temp }) {
   return (
     <div
       className={day === currentDay ? "weather-card active" : "weather-card"}
+      key={weather[0].id}
     >
       <h3>
         {weekday} {day}
