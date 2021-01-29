@@ -1,9 +1,9 @@
 import React from "react";
 
-let urlTemplate = "http://openweathermap.org/img/wn/$$code.png";
-const Icon = ({ icon, description }) => {
-  let getIcon = urlTemplate.replace("$$code", icon);
-  return <img src={getIcon} alt={`Icon of ${description}`} />;
+// let urlTemplate = "http://openweathermap.org/img/wn/$$code.png";
+const Icon = ({ id }) => {
+  // let getIcon = urlTemplate.replace("$$code", icon);
+  return <i class={`wi wi-owm-${id} icons`}></i>;
 };
 
 export default Icon;

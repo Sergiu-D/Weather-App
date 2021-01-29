@@ -12,6 +12,7 @@ import HourlyWeather from "./Components/HourlyWeather";
 // Utilities
 import useSWR from "swr";
 import fetcher from "./fetcher";
+import "weather-icons/css/weather-icons.css";
 
 const weatherDataURL =
   "https://api.openweathermap.org/data/2.5/onecall?lat=$$lat&lon=$$lon&exclude=minutely,hourly,alerts&appid=faa43b230bd3f3f5c33027ab0a77b157&units=metric";

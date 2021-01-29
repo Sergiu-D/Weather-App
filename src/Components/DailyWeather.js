@@ -2,8 +2,6 @@ import React from "react";
 import Date from "../Util/Date";
 import Icon from "../Util/Icons";
 
-// TODO Functie noua care sa returneze cate o ziua.
-
 function Day({ dt, weather, temp }) {
   const { weekday, day } = Date(dt);
 
