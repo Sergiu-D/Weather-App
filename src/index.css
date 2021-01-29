@@ -82,9 +82,12 @@ section {
 
 /* Clock */
 
+/* TODO Fix wiggle clock */
+
 .clock-wp {
   flex: 1;
-  display: flex;
+
+  text-align: center;
   justify-content: center;
   border-right: 2px solid var(--white-bg);
 }
@@ -94,6 +97,7 @@ section {
 .weather-daily-wp {
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
 }
 
 .icons {

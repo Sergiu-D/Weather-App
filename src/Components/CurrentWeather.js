@@ -4,7 +4,6 @@ import Icon from "../Util/Icons";
 export default function CurrentWeather({ current }) {
   const { temp, feels_like, humidity, wind_speed, weather } = current;
 
-  console.log();
   return (
     <div className="current-weather-wp">
       <h1>{temp}°</h1>
