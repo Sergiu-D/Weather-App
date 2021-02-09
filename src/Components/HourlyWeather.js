@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "@reactchartjs/react-chart.js";
+import Chart from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Line } from "react-chartjs-2";
 
 const data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -99,7 +101,7 @@ function HourlyWeather({ hourly }) {
     // getHourlyTemp.push(hourly[i].temp);
     const formatttedDate = new Date(hourly[i].dt * 1000).getHours()
     graphData.labels.push(formatttedDate)
-    graphData.datasets[0].data.push(hourly[i].temp)
+    graphData.datasets[0].data.push(parseInt(hourly[i].temp))
   }
 
 
@@ -107,12 +109,25 @@ function HourlyWeather({ hourly }) {
     <div>
       <h2>Bar Example (custom size)</h2>
 
-      <div style={{ position: 'relative', height: '100px', width: '90%' }}>
+      <div style={{ position: 'relative', height: '240px', width: '90%' }}>
         <Line
           data={graphData}
           // width={window.innerWidth - 100}
           // height={150}
           options={{
+            layout: {
+              padding: 35,
+            },
+            plugins: {
+              // Change options for ALL labels of THIS CHART
+              datalabels: {
+                color: '#36A2EB',
+                offset: -30,
+                align: 'start',
+                anchor: 'end',
+              }
+            },
+
             scales: {
               yAxes: [
                 {
