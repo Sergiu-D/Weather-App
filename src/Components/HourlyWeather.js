@@ -128,11 +128,13 @@ function HourlyWeather({ hourly }) {
               // Change options for ALL labels of THIS CHART
               datalabels: {
                 formatter: function (value, context) {
+                  // NOTE converting index to string
                   const index = '' + graphData.datasets[0].data.indexOf(+value)
-                  console.log(`value, ${value}`, index)
                   const isMax = minMax.maxlist.includes(index)
                   const isMin = minMax.minlist.includes(index)
                   const symbol = isMax?'▲ ':isMin?'▼ ':''
+
+                  //NOTE converting index back to number
                   if (isMax || isMin || +index === 0 || +index === graphData.datasets[0].data.length - 1) {
                     return `${symbol}${value.toFixed(1)}°`
 
