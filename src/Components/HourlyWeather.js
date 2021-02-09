@@ -106,7 +106,7 @@ function HourlyWeather({ hourly }) {
     graphData.datasets[0].data.push(hourly[i].temp)
   }
   const minMax = extrema(graphData.datasets[0].data, 0.5)
-  console.log(`minMax`, minMax, graphData.datasets[0].data)
+  // console.log(`minMax`, minMax, graphData.datasets[0].data)
 
 
   let lastDisplayed = -100
@@ -127,6 +127,7 @@ function HourlyWeather({ hourly }) {
             plugins: {
               // Change options for ALL labels of THIS CHART
               datalabels: {
+                //NOTE @see https://chartjs-plugin-datalabels.netlify.app/guide/
                 formatter: function (value, context) {
                   // NOTE converting index to string
                   const index = '' + graphData.datasets[0].data.indexOf(+value)
