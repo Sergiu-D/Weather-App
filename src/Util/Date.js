@@ -7,6 +7,7 @@ export default function DateUTC(utc) {
 
   const dateObj = {
     weekday: weekdays,
+    dayNumber: d.getDay() + 1,
     day: d.getDate(),
     month: d.getMonth(),
     year: d.getFullYear(),

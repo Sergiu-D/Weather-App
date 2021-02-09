@@ -13,7 +13,6 @@ function Day({ dt, weather, temp }) {
   return (
     <div
       className={day === currentDay ? "weather-card active" : "weather-card"}
-      key={weather[0].id}
     >
       <h3>
         {weekday} {day}
@@ -30,8 +29,8 @@ function Day({ dt, weather, temp }) {
 export default function DailyWeather({ daily }) {
   return (
     <div className="weather-daily-wp">
-      {daily.map((dayInfo) => {
-        return <Day {...dayInfo} />;
+      {daily.map((dayInfo, index) => {
+        return <Day {...dayInfo} key={index} />;
       })}
     </div>
   );

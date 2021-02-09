@@ -3,7 +3,7 @@
 :root {
   --primary-cl: #288f9f;
   --secondary-cl: #585858;
-  --white-bg: rgba(255, 255, 255, 0.2);
+  --white-bg: rgba(255, 255, 255, 0.015);
 }
 
 body {
@@ -46,7 +46,6 @@ section {
   min-width: 65vw;
   background: var(--white-bg);
   padding: 3rem;
-  border-radius: 1.5rem;
   backdrop-filter: blur(10px);
   box-shadow: 15px 15px 10px #0000;
 }

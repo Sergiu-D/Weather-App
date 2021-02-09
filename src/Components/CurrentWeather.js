@@ -12,9 +12,11 @@ export default function CurrentWeather({ current }) {
         <h3>{weather[0].description}</h3>
       </div>
       <div className="current-weather_info">
-        <h3>Feels like: {feels_like}°</h3>
+        <h3>Feels like: {Math.trunc(feels_like)}°</h3>
         <h3>Humidity: {humidity}%</h3>
-        <h3>Wind speed: {wind_speed} m/s</h3>
+        <h3>
+          Wind speed: {wind_speed} <small>m/s</small>
+        </h3>
       </div>
     </div>
   );

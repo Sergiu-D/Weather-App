@@ -15,7 +15,7 @@ import fetcher from "./fetcher";
 import "weather-icons/css/weather-icons.css";
 
 const weatherDataURL =
-  "https://api.openweathermap.org/data/2.5/onecall?lat=$$lat&lon=$$lon&exclude=minutely,hourly,alerts&appid=faa43b230bd3f3f5c33027ab0a77b157&units=metric";
+  "https://api.openweathermap.org/data/2.5/onecall?lat=$$lat&lon=$$lon&exclude=minutely&appid=faa43b230bd3f3f5c33027ab0a77b157&units=metric";
 
 function App() {
   const [position, setPosition] = useState({
@@ -59,7 +59,6 @@ function App() {
   const { data, error } = useSWR(replaceURL, fetcher);
   if (error) return <h1>Error...</h1>;
   if (!data) return <Loading />;
-  // TODO Al 2 lea API redenumeste.
 
   // ======= Waiting For Response ========
 
