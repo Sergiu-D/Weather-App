@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=B612+Mono&display=swap");
 
 :root {
   --primary-cl: #288f9f;
@@ -44,6 +45,7 @@ h3 {
 
 section {
   min-width: 65vw;
+  height: fit-content;
   background: var(--white-bg);
   padding: 3rem;
   backdrop-filter: blur(10px);
@@ -84,6 +86,7 @@ section {
 /* TODO Fix wiggle clock */
 
 .clock-wp {
+  font-family: "B612 Mono", monospace;
   flex: 1;
 
   text-align: center;
