@@ -39,37 +39,98 @@ function HourlyWeather({ hourly }) {
   //   return;
   // }
   // getHourlyData();
+
   // useEffect(() => {
   //   setHourlyTemp(getHourlyTemp);
   // }, [getHourlyTemp]);
 
   // console.log(hourlyTemp);
 
+  // RTFM
+
+  function computeNumPoints() {
+    const ww = window.innerWidth
+    let _numPoints = 6
+    if (ww >= 640) {
+      _numPoints = 12
+    }
+    if (ww >= 720) {
+      _numPoints = 18
+    }
+    if (ww >= 1024) {
+      _numPoints = 24
+    }
+    // console.log(`pts: ${_numPoints}`)
+    return _numPoints
+  }
+
+  //NOTE stiu ca-l fut
+  const graphData = { ...data };
+
+  graphData.labels = []
+  graphData.datasets[0].data = []
+  const [numPoints, setNumPoints] = useState(computeNumPoints())
+
+  useEffect(() => {
+    console.log('Observing resize')
+    const listener = () => {
+
+
+      const newValue = computeNumPoints()
+      if (numPoints !== newValue) {
+        console.log(`Resized to ${window.innerWidth}, oldpts:${numPoints} pts: ${newValue}`)
+        setNumPoints(newValue)
+      }
+
+    }
+
+    window.addEventListener('resize', listener)
+
+    return () => {
+      console.log('cleanup')
+      window.removeEventListener('resize', listener)
+    }
+
+  }, [numPoints])
+
+
+
+  for (let i = 0; i < numPoints; i++) {
+    // getHourlyTemp.push(hourly[i].temp);
+    const formatttedDate = new Date(hourly[i].dt * 1000).getHours()
+    graphData.labels.push(formatttedDate)
+    graphData.datasets[0].data.push(hourly[i].temp)
+  }
+
+
   return (
     <div>
       <h2>Bar Example (custom size)</h2>
-      <Line
-        data={data}
-        width={100}
-        height={15}
-        options={{
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  display: false,
+
+      <div style={{ position: 'relative', height: '100px', width: '90%' }}>
+        <Line
+          data={graphData}
+          // width={window.innerWidth - 100}
+          // height={150}
+          options={{
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    display: false,
+                  },
                 },
-              },
-            ],
-          },
-          legend: {
-            display: true,
-            position: "bottom",
-          },
-          maintainAspectRatio: true,
-          responsive: true,
-        }}
-      />
+              ],
+            },
+            legend: {
+              display: true,
+              position: "bottom",
+            },
+            maintainAspectRatio: false,
+            responsive: true,
+          }}
+        />
+      </div>
     </div>
   );
 }
