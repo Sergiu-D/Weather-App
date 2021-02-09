@@ -51,7 +51,7 @@ function HourlyWeather({ hourly }) {
       <Line
         data={data}
         width={100}
-        height={10}
+        height={15}
         options={{
           scales: {
             yAxes: [
