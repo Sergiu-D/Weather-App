@@ -9,7 +9,8 @@ const data = {
   datasets: [
     {
       label: "My First dataset",
-      backgroundColor: "rgba(255,99,132,0.2)",
+      // backgroundColor: "rgba(255,99,132,0.2)",
+      backgroundColor: "rgba(255,99,132,0.0)",
       borderColor: "rgba(255,99,132,1)",
       borderWidth: 1,
       hoverBackgroundColor: "rgba(255,99,132,0.4)",
@@ -101,7 +102,7 @@ function HourlyWeather({ hourly }) {
     // getHourlyTemp.push(hourly[i].temp);
     const formatttedDate = new Date(hourly[i].dt * 1000).getHours()
     graphData.labels.push(formatttedDate)
-    graphData.datasets[0].data.push(parseInt(hourly[i].temp))
+    graphData.datasets[0].data.push(hourly[i].temp)
   }
 
 
@@ -121,6 +122,11 @@ function HourlyWeather({ hourly }) {
             plugins: {
               // Change options for ALL labels of THIS CHART
               datalabels: {
+                formatter: function (value, context) {
+                  // return context.dataIndex + ': ' + parseInt(value );
+                  return `${value.toFixed(1)}°`
+                },
+
                 color: '#36A2EB',
                 offset: -30,
                 align: 'start',
