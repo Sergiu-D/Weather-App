@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Chart from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Line } from "react-chartjs-2";
+import { extrema } from "../math";
 
 const data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -104,7 +105,11 @@ function HourlyWeather({ hourly }) {
     graphData.labels.push(formatttedDate)
     graphData.datasets[0].data.push(hourly[i].temp)
   }
+  const minMax = extrema(graphData.datasets[0].data, 0.5)
+  console.log(`minMax`, minMax, graphData.datasets[0].data)
 
+
+  let lastDisplayed = -100
 
   return (
     <div>
@@ -123,8 +128,16 @@ function HourlyWeather({ hourly }) {
               // Change options for ALL labels of THIS CHART
               datalabels: {
                 formatter: function (value, context) {
-                  // return context.dataIndex + ': ' + parseInt(value );
-                  return `${value.toFixed(1)}°`
+                  const index = '' + graphData.datasets[0].data.indexOf(+value)
+                  console.log(`value, ${value}`, index)
+                  const isMax = minMax.maxlist.includes(index)
+                  const isMin = minMax.minlist.includes(index)
+                  const symbol = isMax?'▲ ':isMin?'▼ ':''
+                  if (isMax || isMin || +index === 0 || +index === graphData.datasets[0].data.length - 1) {
+                    return `${symbol}${value.toFixed(1)}°`
+
+                  }
+                  return ``
                 },
 
                 color: '#36A2EB',
