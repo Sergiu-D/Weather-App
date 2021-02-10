@@ -129,14 +129,14 @@ function HourlyWeather({ hourly }) {
               datalabels: {
                 //NOTE @see https://chartjs-plugin-datalabels.netlify.app/guide/
                 formatter: function (value, context) {
+                  const index = context.dataIndex
+
                   // NOTE converting index to string
-                  const index = '' + context.dataIndex
-                  const isMax = minMax.maxlist.includes(index)
-                  const isMin = minMax.minlist.includes(index)
+                  const isMax = minMax.maxlist.includes('' + index)
+                  const isMin = minMax.minlist.includes('' + index)
                   const symbol = isMax ? '▲ ' : isMin ? '▼ ' : ''
 
-                  //NOTE converting index back to number
-                  if (isMax || isMin || +index === 0 || +index === graphData.datasets[0].data.length - 1) {
+                  if (isMax || isMin || index === 0 || index === graphData.datasets[0].data.length - 1) {
                     return `${symbol}${value.toFixed(1)}°`
 
                   }
