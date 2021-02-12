@@ -30,11 +30,11 @@ function HourlyWeather({ hourly }) {
   // const hour = hourly.map((element, index) => element[index].temp);
   // const [hourlyTemp, setHourlyTemp] = useState([]);
 
-  // const getHourlyTemp = [];
+  // const setHourlyTemp = [];
 
   // function getHourlyData() {
   //   for (let i = 0; i < hourly.length; i++) {
-  //     getHourlyTemp.push(hourly[i].temp);
+  //     setHourlyTemp.push(hourly[i].temp);
   //   }
   //   return;
   // }
@@ -45,11 +45,22 @@ function HourlyWeather({ hourly }) {
 
   // console.log(hourlyTemp);
 
+  let dataChart = { ...data };
+  console.log(dataChart);
+
+  dataChart.labels = [];
+  dataChart.datasets[0].data = [];
+
+  for (let i = 0; i < 11; i++) {
+    dataChart.labels.push(hourly[i].dt);
+    dataChart.datasets[0].data.push(hourly[i].temp);
+  }
+
   return (
     <div>
       <h2>Bar Example (custom size)</h2>
       <Line
-        data={data}
+        data={dataChart}
         width={100}
         height={15}
         options={{
