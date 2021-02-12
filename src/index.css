@@ -7,6 +7,10 @@
   --white-bg: rgba(255, 255, 255, 0.015);
 }
 
+html {
+  font-size: 82.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -36,11 +40,12 @@ h3 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-image: url("./img/breno-machado-in9-n0JwgZ0-unsplash.jpg");
   background-size: cover;
   background-position: center;
+  overflow-x: hidden;
 }
 
 section {
@@ -106,14 +111,10 @@ section {
   flex: 1;
   background: linear-gradient(
     -45deg,
-    rgba(40, 143, 159, 0.3),
-    rgba(88, 88, 88, 0.3) 80%
+    rgba(40, 143, 159, 0.7),
+    rgba(88, 88, 88, 0.7) 80%
   );
-}
-
-.weather-card.active {
-  flex: 1;
-  background: linear-gradient(-45deg, rgba(40, 143, 159), rgba(88, 88, 88) 80%);
+  margin-top: 3rem;
 }
 
 .weather-card:not(:last-child) {
@@ -132,4 +133,41 @@ section {
   font-size: 2.5rem;
   color: orangered;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 1530px) {
+  html {
+    font-size: 72.5%;
+  }
+  section {
+    width: 75vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  html {
+    font-size: 62.5%;
+  }
+  section {
+    width: 95vw;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  html {
+    font-size: 58.5%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  #current-section {
+    background: none;
+    backdrop-filter: blur(0px);
+  }
+  .cw-wrapper {
+    flex-direction: column;
+  }
+  .weather-daily-wp {
+    display: block;
+  }
 }

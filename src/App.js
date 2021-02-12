@@ -28,6 +28,8 @@ function App() {
     response: false,
   });
 
+  const [width, setWidth] = useState([window.innerWidth]);
+
   // ======= Get geolocation ========
 
   const geolocation = navigator.geolocation;
@@ -72,19 +74,43 @@ function App() {
 
   const { current, daily, hourly } = data;
 
+  function windowWidth() {
+    setWidth(window.innerWidth);
+  }
+
+  window.addEventListener("resize", windowWidth);
+
   return (
     <div className="container">
-      <section>
-        <Location {...position} />
-        <div className="cw-wrapper">
-          <Clock />
-          <CurrentWeather current={current} />
-        </div>
-        <DailyWeather daily={daily} />
-      </section>
-      <section>
-        <HourlyWeather hourly={hourly} />
-      </section>
+      {width <= 640 ? (
+        <>
+          <section id="current-section">
+            <Location {...position} />
+            <div className="cw-wrapper">
+              <Clock />
+              <CurrentWeather current={current} />
+            </div>
+          </section>
+          <section id="hourly-section">
+            <DailyWeather daily={daily} />
+            <HourlyWeather hourly={hourly} />
+          </section>
+        </>
+      ) : (
+        <>
+          <section id="current-section">
+            <Location {...position} />
+            <div className="cw-wrapper">
+              <Clock />
+              <CurrentWeather current={current} />
+            </div>
+            <DailyWeather daily={daily} />
+          </section>
+          <section id="hourly-section">
+            <HourlyWeather hourly={hourly} />
+          </section>
+        </>
+      )}
     </div>
   );
 }

@@ -10,16 +10,8 @@ function Day({ dt, weather, temp }) {
   // get API date
   const { weekday, day } = DateUTC(dt);
 
-  function listener() {
-    console.log(`Resized to: ${window.innerWidth}`);
-  }
-
-  window.addEventListener("resize", listener);
-
   return (
-    <div
-      className={day === currentDay ? "weather-card active" : "weather-card"}
-    >
+    <div className="weather-card">
       <h3>
         {weekday} {day}
       </h3>
