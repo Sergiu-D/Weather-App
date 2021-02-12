@@ -58,7 +58,7 @@ function App() {
 
   const { data, error } = useSWR(replaceURL, fetcher);
   if (error) return <h1>Error...</h1>;
-  if (!data) return <Loading />;
+  if (!data) return <Loading message={"Weather data is loading..."} />;
 
   // ======= Waiting For Response ========
 

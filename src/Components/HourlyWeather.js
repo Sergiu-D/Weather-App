@@ -4,6 +4,10 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Line } from "react-chartjs-2";
 import { extrema } from "../math";
 
+//TODO Remove empty data points
+//TODO Add icons
+//TODO Style fonts
+
 const data = {
   labels: ["January", "February", "March", "April", "May", "June", "July"],
 
@@ -12,44 +16,17 @@ const data = {
       label: "My First dataset",
       // backgroundColor: "rgba(255,99,132,0.2)",
       backgroundColor: "rgba(255,99,132,0.0)",
-      borderColor: "rgba(255,99,132,1)",
+      borderColor: "orangered",
       borderWidth: 1,
       hoverBackgroundColor: "rgba(255,99,132,0.4)",
       hoverBorderColor: "rgba(255,99,132,1)",
+
       data: [65, 59, 80, 81, 56, 55, 40],
     },
-    //   {
-    //     label: "My Second dataset",
-    //     backgroundColor: "rgba(157, 191, 158,0.2)",
-    //     borderColor: "rgba(56, 86, 57,1)",
-    //     borderWidth: 1,
-    //     hoverBackgroundColor: "rgba(56, 86, 57,1)",
-    //     hoverBorderColor: "rgba(157, 191, 158,0.2)",
-    //     data: [40, 70, 35, 51, 24, 65, 80],
-    //   },
   ],
 };
 
 function HourlyWeather({ hourly }) {
-  // const hour = hourly.map((element, index) => element[index].temp);
-  // const [hourlyTemp, setHourlyTemp] = useState([]);
-
-  // const setHourlyTemp = [];
-
-  // function getHourlyData() {
-  //   for (let i = 0; i < hourly.length; i++) {
-  //     setHourlyTemp.push(hourly[i].temp);
-  //   }
-  //   return;
-  // }
-  // getHourlyData();
-
-  // useEffect(() => {
-  //   setHourlyTemp(getHourlyTemp);
-  // }, [getHourlyTemp]);
-
-  // console.log(hourlyTemp);
-
   // RTFM
 
   function computeNumPoints() {
@@ -68,7 +45,7 @@ function HourlyWeather({ hourly }) {
     return _numPoints;
   }
 
-  //NOTE stiu ca-l fut
+  //NOTE copy of chart object
   const graphData = { ...data };
 
   graphData.labels = [];
@@ -104,8 +81,6 @@ function HourlyWeather({ hourly }) {
   const minMax = extrema(graphData.datasets[0].data, 0.5);
   // console.log(`minMax`, minMax, graphData.datasets[0].data)
 
-  let lastDisplayed = -100;
-
   return (
     <div>
       <h2>Bar Example (custom size)</h2>
@@ -118,6 +93,10 @@ function HourlyWeather({ hourly }) {
           options={{
             layout: {
               padding: 35,
+            },
+
+            labels: {
+              defaultFontSize: 24,
             },
             plugins: {
               // Change options for ALL labels of THIS CHART
@@ -142,7 +121,7 @@ function HourlyWeather({ hourly }) {
                   return ``;
                 },
 
-                color: "#36A2EB",
+                color: "#fff",
                 offset: -30,
                 align: "start",
                 anchor: "end",
@@ -159,8 +138,7 @@ function HourlyWeather({ hourly }) {
               ],
             },
             legend: {
-              display: true,
-              position: "bottom",
+              display: false,
             },
             maintainAspectRatio: false,
             responsive: true,
