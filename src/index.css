@@ -102,7 +102,7 @@ section {
 
 .weather-daily-wp {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   text-align: center;
 }
 
@@ -124,9 +124,11 @@ section {
   margin-right: 1rem;
 }
 .weather-card_weekday {
+  min-height: 2em;
   margin: 0;
 }
 .weather-card .temp {
+  justify-items: flex-end;
   margin: 0;
   font-size: 2rem;
 }
@@ -196,7 +198,7 @@ section {
   .weather-card {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 1rem 2rem;
     margin: 0;
@@ -204,6 +206,9 @@ section {
   .weather-card * {
     margin: 0;
     padding: 0;
+  }
+  .weather-card_weekday {
+    margin-right: auto;
   }
 
   /* .weather-card:last-child {
