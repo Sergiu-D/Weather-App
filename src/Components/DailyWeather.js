@@ -18,10 +18,10 @@ function Day({ dt, weather, temp }) {
       <div className="weather-card_temp-wp">
         <Icon {...weather[0]} />
         <h3 className="weather-card_description">{weather[0].description}</h3>
-        <h3 className="temp">
-          {Math.trunc(temp.day)}° <span>{Math.trunc(temp.night)}°</span>
-        </h3>
       </div>
+      <h3 className="temp">
+        {Math.trunc(temp.day)}° <span>{Math.trunc(temp.night)}°</span>
+      </h3>
     </div>
   );
 }

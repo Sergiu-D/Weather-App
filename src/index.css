@@ -206,12 +206,9 @@ section {
     padding: 0;
   }
 
-  .weather-card .weather-card_weekday {
-    /* min-width: 8rem; */
-  }
-  .weather-card:last-child {
+  /* .weather-card:last-child {
     margin-right: 1rem;
-  }
+  } */
 
   .weather-card .temp {
     font-size: 2rem;
@@ -221,16 +218,7 @@ section {
     color: #b4b4b4;
   }
   .weather-card_temp-wp {
-    position: relative;
-  }
-  .current-weather_info {
-    position: absolute;
-    right: 0;
-  }
-  .weather-card_temp-wp .icons,
-  .weather-card_description {
-    position: absolute;
-    right: 17vw;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
   }
 }
