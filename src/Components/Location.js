@@ -15,7 +15,7 @@ export default function Location({ latitude, longitude }) {
   if (error) return <h1>Error...</h1>;
   if (!data) return <Loading message={"Location is loading..."} />;
 
-  const { list } = data;
+  const { list } = data; 
 
   return (
     <div>
