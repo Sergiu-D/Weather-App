@@ -12,15 +12,15 @@ function Day({ dt, weather, temp }) {
 
   return (
     <div className="weather-card">
-      <h3>
+      <h3 className="weather-card_weekday">
         {weekday} {day}
       </h3>
-      <Icon {...weather[0]} />
-      <h3 className="temp">
-        {Math.trunc(temp.day)}° <span>{Math.trunc(temp.night)}°</span>
-      </h3>
-      <div className="weather-card_description">
-        <h3>{weather[0].description}</h3>
+      <div className="weather-card_temp-wp">
+        <Icon {...weather[0]} />
+        <h3 className="weather-card_description">{weather[0].description}</h3>
+        <h3 className="temp">
+          {Math.trunc(temp.day)}° <span>{Math.trunc(temp.night)}°</span>
+        </h3>
       </div>
     </div>
   );

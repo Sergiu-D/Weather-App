@@ -37,7 +37,8 @@ h3 {
 
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -88,8 +89,6 @@ section {
 
 /* Clock */
 
-/* TODO Fix wiggle clock */
-
 .clock-wp {
   font-family: "B612 Mono", monospace;
   flex: 1;
@@ -109,18 +108,26 @@ section {
 
 .weather-card {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: linear-gradient(
     -45deg,
     rgba(40, 143, 159, 0.7),
     rgba(88, 88, 88, 0.7) 80%
   );
   margin-top: 3rem;
+  padding: 1rem;
 }
 
 .weather-card:not(:last-child) {
   margin-right: 1rem;
 }
+.weather-card_weekday {
+  margin: 0;
+}
 .weather-card .temp {
+  margin: 0;
   font-size: 2rem;
 }
 .weather-card span {
@@ -169,14 +176,61 @@ section {
 }
 
 @media only screen and (max-width: 640px) {
-  #current-section {
+  .current-section {
     background: none;
     backdrop-filter: blur(0px);
   }
+  .hourly-section {
+    width: 100%;
+    margin-top: 6vh;
+    padding: 0;
+  }
+
   .cw-wrapper {
     flex-direction: column;
   }
   .weather-daily-wp {
     display: block;
+  }
+
+  .weather-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin: 0;
+  }
+  .weather-card * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .weather-card .weather-card_weekday {
+    /* min-width: 8rem; */
+  }
+  .weather-card:last-child {
+    margin-right: 1rem;
+  }
+
+  .weather-card .temp {
+    font-size: 2rem;
+  }
+  .weather-card span {
+    font-size: 1.5rem;
+    color: #b4b4b4;
+  }
+  .weather-card_temp-wp {
+    position: relative;
+  }
+  .current-weather_info {
+    position: absolute;
+    right: 0;
+  }
+  .weather-card_temp-wp .icons,
+  .weather-card_description {
+    position: absolute;
+    right: 17vw;
+    text-align: center;
   }
 }

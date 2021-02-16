@@ -78,20 +78,21 @@ function App() {
     setWidth(window.innerWidth);
   }
 
+  window.removeEventListener("resize", windowWidth);
   window.addEventListener("resize", windowWidth);
 
   return (
     <div className="container">
       {width <= 640 ? (
         <>
-          <section id="current-section">
+          <section className="current-section">
             <Location {...position} />
             <div className="cw-wrapper">
               <Clock />
               <CurrentWeather current={current} />
             </div>
           </section>
-          <section id="hourly-section">
+          <section className="hourly-section">
             <DailyWeather daily={daily} />
             <HourlyWeather hourly={hourly} />
           </section>
